@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Înregistrare</title>
+  <link rel="stylesheet" href="../css/style-register.css" />
+  <style>
+    .auth-links {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    .auth-links a {
+      color: #28a745;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <main class="main-content">
+    <h2>Înregistrare</h2>
+
+    <div id="register-toast" class="toast-error" style="display: none;"></div>
+
+    <form id="register-form" action="../backend/routes/auth_register.php" method="POST">
+      <label for="username">Utilizator:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Parolă:</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="confirm-password">Confirmă parola:</label>
+      <input type="password" id="confirm-password" required>
+
+      <button type="submit">Creează cont</button>
+    </form>
+
+    <div class="auth-links">
+      <p>Ai deja cont? <a href="login.html">Conectează-te aici</a></p>
+    </div>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const error = params.get('error');
+    if (error) {
+      const toast = document.getElementById('register-toast');
+      toast.textContent = decodeURIComponent(error);
+      toast.style.display = 'block';
+      setTimeout(() => toast.style.opacity = '0', 4000);
+      setTimeout(() => toast.remove(), 5000);
+    }
+
+    const form = document.getElementById('register-form');
+    form.addEventListener('submit', function (e) {
+      const pass = document.getElementById('password').value;
+      const confirm = document.getElementById('confirm-password').value;
+      if (pass !== confirm) {
+        e.preventDefault();
+        const toast = document.getElementById('register-toast');
+        toast.textContent = "Parolele nu sunt identice!";
+        toast.style.display = 'block';
+        toast.style.opacity = '1';
+        setTimeout(() => toast.style.opacity = '0', 4000);
+        setTimeout(() => toast.remove(), 5000);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  color: #fff;
+  background: url('../assets/photos/mainbackground.jpg') no-repeat fixed;
+  background-size: cover;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+  height: 100%;
+}
+
+
+h1, h2, h3 {
+  text-align: center;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.site-footer {
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: #ccc;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #28a745;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  opacity: 1;
+  transition: opacity 1s ease-out;
+  z-index: 1000;
+}
+
+.full {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero {
+  background: url('../assets/background.jpg') no-repeat center center / cover;
+  position: relative;
+}
+
+.hero-content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem 3rem;
+  border-radius: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 20 0px 80px rgba(0, 0, 0, 0.3);
+}
+
+.full h2, .full p {
+  margin: 0.5rem 0;
+}
+
+.section-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.section-boxed1 {
+  background-color: rgba(34, 34, 34, 0.95); /* sau #222 */
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.section-boxed2 {
+  background-color: #222; /* sau #222 */
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.section-content.reverse {
+  flex-direction: row-reverse;
+}
+
+.section-image {
+  position: relative;
+  flex: 1 1 40%;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.section-image:hover {
+  transform: scale(1.02);
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.section-image:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-overlay h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.image-overlay p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.section-text {
+  flex: 1 1 50%;
+  max-width: 600px;
+  text-align: left;
+  align-self: center;
+}
+
+section:nth-of-type(2) {
+  background-color: #333;
+}
+
+section:nth-of-type(3) {
+  background-color: #222;
+}
+
+@media (max-width: 700px) {
+  .section-content {
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .section-image {
+    width: 100%;
+    min-height: 220px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+  }
+
+  .section-text {
+    width: 100%;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .reverse {
+    flex-direction: column-reverse !important;
+  }
+}
+
+@media (min-width: 701px) {
+  .section-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-content.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .section-image {
+    flex: 1 1 40%;
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+  }
+
+  .section-text {
+    flex: 1 1 50%;
+    max-width: 600px;
+    text-align: left;
+  }
+}
+

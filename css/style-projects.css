@@ -1,0 +1,136 @@
+body {
+  font-family: 'Lora', serif;
+  margin: 0;
+  background: #111;
+  color: white;
+}
+
+.project-carousel {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.project-carousel h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.carousel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 7.5rem;
+  position: relative;
+}
+
+.card {
+  position: relative;
+  perspective: 1000px;
+  width: 220px;
+  height: 260px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+  transform-origin: center center;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg) scale(1.03);
+}
+
+
+
+.card-front,
+.card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+}
+
+
+
+.card-front {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-front .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.card-front .overlay span {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-top: 0.5rem;
+}
+
+
+.card-back {
+  background: #535353;
+  color: #fff;
+  transform: rotateY(180deg);
+  z-index: 2;
+  padding: 1.2rem;
+  font-size: 0.95rem;
+}
+
+
+.countup-section {
+  background: #222;
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.countup-box {
+  margin: 1rem;
+}
+
+.countup-box span {
+  font-size: 3rem;
+  font-weight: bold;
+  display: block;
+  color: #a9b9ad;
+}
+
+.countup-box p {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  color: #fff;
+}
